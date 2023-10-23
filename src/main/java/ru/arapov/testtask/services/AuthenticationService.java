@@ -19,10 +19,10 @@ public class AuthenticationService {
     @Autowired
     AuthenticationManager authenticationManager;
 
-    public ApplicationUser registerUser(String username, String password) {
+    public ApplicationUser registerUser(String username, String password, Integer age, String email) {
         String encodedPassword = passwordEncoder.encode(password);
 
-        return userRepository.save(new ApplicationUser(0, username, encodedPassword));
+        return userRepository.save(new ApplicationUser(0, username, encodedPassword, age, email));
     }
 
 
