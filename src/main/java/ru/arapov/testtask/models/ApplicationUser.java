@@ -5,6 +5,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -19,15 +21,11 @@ public class ApplicationUser implements UserDetails {
     private Integer age;
     private String email;
 
+    @ManyToMany(mappedBy = "userSet")
+    private Set<Course> courseSet = new HashSet<>();
+
     public ApplicationUser() {
         super();
-    }
-
-    public ApplicationUser(Integer userId, String username, String password) {
-        super();
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
     }
 
     public ApplicationUser(Integer userId, String username, String password, Integer age, String email) {
@@ -101,5 +99,13 @@ public class ApplicationUser implements UserDetails {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Course> getCourseSet() {
+        return courseSet;
+    }
+
+    public void setCourseSet(Set<Course> courseSet) {
+        this.courseSet = courseSet;
     }
 }
