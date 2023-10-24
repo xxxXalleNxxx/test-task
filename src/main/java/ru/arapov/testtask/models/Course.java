@@ -26,6 +26,9 @@ public class Course {
     )
     private Set<ApplicationUser> userSet = new HashSet<>();
 
+    @OneToMany(mappedBy = "course")
+    private Set<Lecture> lectures = new HashSet<Lecture>();
+
     public Course() {
 
     }
@@ -57,5 +60,13 @@ public class Course {
 
     public void setUserSet(Set<ApplicationUser> userSet) {
         this.userSet = userSet;
+    }
+
+    public Set<Lecture> getLectures() {
+        return lectures;
+    }
+
+    public void setLectures(Set<Lecture> lectures) {
+        this.lectures = lectures;
     }
 }

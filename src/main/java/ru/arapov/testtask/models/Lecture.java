@@ -12,6 +12,10 @@ public class Lecture {
 
     private String title;
 
+    @ManyToOne
+    @JoinColumn(name = "course_id", nullable = false)
+    private Course course;
+
 
     public Lecture() {
 

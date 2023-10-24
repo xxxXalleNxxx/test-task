@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.arapov.testtask.models.Course;
 import ru.arapov.testtask.repository.CourseRepository;
+
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class CourseService {
@@ -34,7 +36,7 @@ public class CourseService {
 
     public String deleteCourse(int id) {
         repository.deleteById(id);
-        return "course deleted !!" + id;
+        return "course deleted: id = " + id;
     }
 
     public Course updateCourse(Course course) {
