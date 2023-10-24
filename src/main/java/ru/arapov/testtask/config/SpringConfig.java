@@ -33,6 +33,7 @@ public class SpringConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers("/auth/**").permitAll();
+                    auth.requestMatchers("/course/**").permitAll();
                     auth.anyRequest().authenticated();
                 });
         return http.build();

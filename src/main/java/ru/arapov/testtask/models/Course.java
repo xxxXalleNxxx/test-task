@@ -12,6 +12,7 @@ import java.util.Set;
 public class Course {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer Id;
 
     @Column(name = "course_name")
